@@ -1,6 +1,6 @@
 class Student
 
-  attr_accessor :name, :grade, :# IDEA: 
+  attr_accessor :name, :grade, :# IDEA:
 
   def initialize (name, grade, id=nil)
     @id = id
@@ -39,6 +39,6 @@ def self.create(name, grade)
 end
 
   # Remember, you can access your database connection anywhere in this class
-  #  with DB[:conn]  
-  
+  #  with DB[:conn]
+
 end
