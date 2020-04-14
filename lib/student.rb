@@ -3,28 +3,35 @@ class Student
   attr_accessor :name, :grade
   attr_reader :id
 
-  def initialize (name, grade)
+  def initialize (name, grade, id = nil)
     @id = id
     @name = name
     @grade = grade
   end
 
   def self.create_table
-    sql = <<_SQL
+    sql = <<-SQL
     CREATE TABLE IF NOT EXISTIS students (
     id INTEGER PRIMARY KEY,
     name TEXT,
     album TEXT
-    )
+  );
     SQL
 
     DB[:conn].execute(sql)
   end
 
+def self.drop_table
+  sql = <<-SQL
+  drop table students;
+  SQL
+  DB[:conn].execute(sql)
+end
+
 def save
   sql = <<_SQL
   INSERT INTO students (name, grade)
-  VALUES (?, ?)
+  VALUES (?, ?);
 
   SQL
 
